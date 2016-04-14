@@ -6,10 +6,8 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <ul>
-        {% for student in students %}
-        <li><a href="/directory/{{ student.username }}">{{ student.first_name }} {{ student.last_name }}</a></li>
-        {% endfor %}
-    </ul>
+    {% for student in students %}
+    <p><a href="/directory/{{ student.username }}">{{ student.first_name }} {{ student.last_name }}</a></p>
+    {% endfor %}
 </body>
 </html>
