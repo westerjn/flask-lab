@@ -1,4 +1,5 @@
-from os.path import dirname, join as join_path
+from os import chdir
+from os.path import dirname
 
 from flask import Flask, render_template, send_from_directory
 
@@ -35,7 +36,7 @@ class Student:
 
 def get_data():
     students = []
-    with open(join_path(dirname(__file__), 'students.csv')) as fd:
+    with open('students.csv') as fd:
         for line in fd.read().splitlines():
             name, username, majors, advisor = line.split('\t')
             last_name, first_name = name.split(', ')
@@ -57,5 +58,5 @@ def view_css(file):
     return send_from_directory('css', file)
 
 if __name__ == '__main__':
-    #print(get_data())
+    chdir(dirname(__file__))
     app.run(debug=True)
