@@ -1,3 +1,5 @@
+from os.path import dirname, join as join_path
+
 from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__)
@@ -33,7 +35,7 @@ class Student:
 
 def get_data():
     students = []
-    with open('students.csv') as fd:
+    with open(join_path(dirname(__file__), 'students.csv')) as fd:
         for line in fd.read().splitlines():
             name, username, majors, advisor = line.split('\t')
             last_name, first_name = name.split(', ')
