@@ -33,6 +33,14 @@ class Student:
         self.username = username
         self.majors = majors
         self.advisor = advisor
+    def __repr__(self):
+        return 'Student(' + self.username + ')'
+    def __str__(self):
+        return 'Student(' + self.username + ')'
+    def __hash__(self):
+        return self.username
+    def __eq__(self, other):
+        return self.username == other.username
 
 def get_data():
     students = []
