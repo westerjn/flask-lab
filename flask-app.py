@@ -11,15 +11,15 @@ app = Flask(__name__)
 def view_hello():
     return 'Hello World!'
 
-@app.route('/demo-1')
+@app.route('/demo-1/')
 def view_demo_1():
     return render_template('demo-1.html', name='Justin')
 
-@app.route('/demo-2/<name>')
+@app.route('/demo-2/<name>/')
 def view_demo_2(name):
     return render_template('demo-1.html', name=name)
 
-@app.route('/demo-3')
+@app.route('/demo-3/')
 def view_demo_3():
     names = ['Alice', 'Bob', 'Charlie']
     return render_template('demo-3.html', salutation='Roll call', names=names)
@@ -51,11 +51,11 @@ def get_data():
             students.append(Student(first_name, last_name, username, majors, advisor))
     return sorted(students, key=(lambda s: s.username))
 
-@app.route('/directory')
+@app.route('/directory/')
 def view_directory():
     return 'FIXME'
 
-@app.route('/directory/<username>')
+@app.route('/directory/<username>/')
 def view_student(username):
     return 'FIXME'
 
